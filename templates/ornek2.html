@@ -1,0 +1,52 @@
+{% extends 'ornek1.html' %}
+<!---->
+
+{% block start_page %}
+
+<div class = "jumbotron text-center">
+
+    <h3> Welcome to new generation book shopping </h3>
+    <p>  Thanks to Kitapp, reading will no longer be a luxury. </p>
+
+</div>
+
+<!-- Template koşul kullanımı -->
+{%if order == "yes"%}
+<p> Order is being prepared... </p>
+
+{%elif order == "no"%}
+<p> Order canceled... </p>
+
+{%elif order == "idk"%}
+<p> Please decide your choice... </p>
+
+{%else%}
+<p> Please login to order...</p>
+
+{% endif %}<!-- Koşulun sonunun geldiğini anlamak için endifi yazman lazım. -->
+
+
+
+<ul><!-- kodları alt alta bir şekilde webde yazdırır-->
+<!-- Template döngü kullanımı -->
+
+    {% for i in numbers  %}
+
+        <li>{{i}} €</li> <!-- değişkeni pythondan aldığımız için web sitesinde kullanmak için parentez içinde kullanmamız lazım -->
+    
+    {% endfor %}<!-- Burada da döngünün sonu için endforu yaz. -->
+
+
+    {% for j in books  %}
+    
+
+        <li>Book ID: {{j.id}} - Book Title: {{j.title}} - Book Cont: {{j.cont}} </li>
+<!-- listemizin her bir üyesi aynı zamanda sözlük olduğu için böyle yaptık.-->
+    {% endfor %}
+
+
+</ul>
+
+
+
+{% endblock start_page%}

@@ -1,0 +1,49 @@
+{% extends "ornek1.html" %}
+
+{% block start_page %}
+
+<h3> Control Panel  </h3>
+
+<small> We miss you {{session["username"]}} </small>
+
+<hr>
+
+{% if book %}
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col">Title</th>
+      <th scope="col">Author</th>
+    </tr>
+  </thead>
+  <tbody>
+    {%  for bok  in book %}
+
+        <tr>
+      <th scope="row">{{bok.id}}</th>
+      <td><a href = "/book/{{ bok.id }}">{{bok.title}}</a></td>
+      <td>{{bok.author}}</td>
+      <td><a href = "/edit/{{ bok.id }}" class = "btn btn-info">Update</a>   </td>
+      <td><a href = "/delete/{{ bok.id }}" class = "btn btn-danger">Delete</a>   </td>
+    </tr>
+    
+    
+    {% endfor %}
+
+  </tbody>
+</table>
+
+{% else %}
+<div class = "alert alert-danger"> Empty </div>
+{% endif %}
+
+
+<a href = "/addbook" class = "btn btn-danger"> 
+
+    Add book sumamry
+
+ </a>
+
+{% endblock start_page %}

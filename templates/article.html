@@ -1,0 +1,24 @@
+{% extends 'ornek1.html' %}
+
+{% block start_page %}
+
+{% if article %}
+
+<h4> {{article.title}} </h4>
+
+<hr>
+
+Thanks to {{article.author}}
+
+<hr>
+
+{{article.content|safe}}
+
+
+{% else %}
+
+<div class = "alert alert-warning"> Ooops! This book does not exist   </div>
+
+{% endif %}
+
+{% endblock start_page %}

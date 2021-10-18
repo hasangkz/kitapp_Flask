@@ -1,0 +1,51 @@
+{% extends 'ornek1.html' %}
+
+{% block start_page %}
+
+<div class = "jumbotron text-center">
+
+    <h3> You can find all the books written in world history here.</h3>
+  
+</div>
+
+<h3>BOOKS</h3>
+<hr>
+
+{% if data %}
+
+<form action = "/search" method = "post"> 
+
+<input type="text" name = "keyword" class="input-sm" maxlength="64" placeholder="Search...">
+<button type="submit" class="btn btn-success btn-sm"> Search </button>
+
+</form>
+
+<hr>
+
+<ul class="list-group">
+
+{% for book in data  %}
+
+<li class = "list-group-item"> <a href = "book/{{book.id}}">{{book.title}}</a> </li>
+
+
+{% endfor %}
+
+</ul>
+
+{% else %}
+
+<div class = "alert alert-danger"> 
+
+There are not books summary here! 
+
+ </div>
+
+{% endif %}
+
+
+
+
+
+
+{% endblock start_page%}

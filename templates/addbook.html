@@ -1,0 +1,24 @@
+{% extends "ornek1.html" %}
+
+{% block start_page %}
+
+<h3> Create a Book </h3>
+<hr>
+
+{% from "includes/formhelpers.html" import render_field %}
+
+<form method=post>
+  
+    {{ render_field(form.title,class = "form-control") }}
+    {{ render_field(form.content,class = "form-control") }}
+
+  <button type="submit" class="btn btn-primary">Add</button>
+
+
+
+
+
+{% endblock start_page %}
+
+
+

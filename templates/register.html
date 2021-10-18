@@ -1,0 +1,21 @@
+{% extends 'ornek1.html' %}
+
+{% block start_page %}
+{% from "includes/formhelpers.html" import render_field %}
+
+<h3> Register </h3>
+<hr>
+
+<form method=post>
+  
+    {{ render_field(form.name) }}
+    {{ render_field(form.username) }}
+    {{ render_field(form.mail) }}
+    {{ render_field(form.password) }}
+    {{ render_field(form.confirm) }}
+  
+  <button type="submit" class="btn btn-primary">Register</button>
+ 
+</form>
+    
+{% endblock start_page %}
